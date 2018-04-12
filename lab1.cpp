@@ -7,18 +7,15 @@
 int main()
 {
   double x_next;
-  double x_last;
   std::ofstream file;
   file.open("file.txt");
   for (double r = 2.4; r < 4; ) {
 
     for (double x = 0; x < 1; ) {
       x_next = x;
-      x_last = x;
       for (int i = 0; i < 1000; i++)
       {
-        x_last = x_next;
-        x_next = r * x_last  * (1-x_last);
+        x_next = r * x_next  * (1-x_next);
       }
       file << r<<" "<<x_next<< std::endl;
       x += 0.001;
